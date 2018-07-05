@@ -80,7 +80,7 @@
   <div class="well">
   <table class="table table-striped" id="table">
     <!--ColNames-->
-    <tr><?php echo "<h2>".$table."</h2>";?></tr>
+    <tr><?php echo "<h2><i class='text-success glyphicon glyphicon-bookmark'> ".$table."</i></h2>";?></tr>
     <tr>
       <th><a data-target="#editor" data-toggle="collapse"><i class='glyphicon glyphicon-plus'></i></a></th>
       <th>Name</th>
