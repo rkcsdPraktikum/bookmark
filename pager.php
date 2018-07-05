@@ -10,7 +10,7 @@ switch ($_SERVER['PHP_SELF']) {
           echo "<i class='muted glyphicon glyphicon-chevron-left'></i></a>";
           break;
         default:
-          $addpage = $page -1; echo "<a href='admin.php?page=".$addpage."'><i class='glyphicon glyphicon-chevron-left'></i></a>";
+          $addpage = $page -1; echo "<a href='admin.php?page=".$addpage."&bookmarks=".$_GET['bookmarks']."'><i class='glyphicon glyphicon-chevron-left'></i></a>";
           break;
       }
       echo $page;
@@ -19,7 +19,7 @@ switch ($_SERVER['PHP_SELF']) {
           echo "<i class='muted glyphicon glyphicon-chevron-right'></i></a>";
           break;
         default:
-          $subpage = $page +1; echo "<a href='admin.php?page=".$subpage."'><i class='glyphicon glyphicon-chevron-right'></i></a>";
+          $subpage = $page +1; echo "<a href='admin.php?page=".$subpage."&bookmarks=".$_GET['bookmarks']."'><i class='glyphicon glyphicon-chevron-right'></i></a>";
           break;
       }}
       else {

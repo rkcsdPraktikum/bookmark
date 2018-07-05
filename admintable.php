@@ -2,7 +2,7 @@
 require ("./connect.php");
 require ("./page.php");
 if(empty($_GET['search'])){
-  $sql = 'SELECT * FROM bookmark LIMIT 10 OFFSET '.$offset.'';
+  $sql = 'SELECT * FROM '.$_GET['bookmarks'].' LIMIT 10 OFFSET '.$offset.'';
   $result = $db->query($sql);
   if (!$result) {
     die ('Etwas stimmte mit dem Query nicht: '.$db->error);}
