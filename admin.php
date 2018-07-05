@@ -20,6 +20,9 @@
     .well {
       overflow: auto;
     }
+    ul {
+  list-style-type: none;
+}
   </style>
   <?php require ("./page.php");?>
 </head>
@@ -42,6 +45,7 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
         <input class="form-control" name="newname" type="text" placeholder="Name">
+        <input class="hidden" name="bookmarks" value="<?php echo $_GET['bookmarks'];?>">
       </div>
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
@@ -57,18 +61,13 @@
 </div>
 <!--_SIDEBAR_________________________________________________________________-->
 <div class="well">
-  <h3 class="">SIDEBAR</h3>
-  <div class="col-xs-3">
-  <ul class="nav nav-pills nav-stacked">
-  <li><a href="#ordner1" data-toogle="collapse"><i class="glyphicon glyphicon-folder-close"></i></a></li>
-    <ul id="ordner1" class="collapse nav nav-pills nav-stacked">
-      <li><a href="#"><i class="glyphicon glyphicon-folder-close"></i></a></li>
-      <li><a href="#"><i class="glyphicon glyphicon-folder-close"></i></a></li>
-      <li><a href="#"><i class="glyphicon glyphicon-folder-close"></i></a></li>
+  <div class="jumbotron container-fluid"><h3 class="">SIDEBAR</h3></div>
+    <ul class='list-unstyled'>
+      <?php include("./folder.php"); ?>
     </ul>
-</ul>
+
 </div>
-</div>
+<!--_________________________________________________________________________-->
 </div>
 <!--_TABLE___________________________________________________________________-->
 <div class="col-sm-8">
@@ -81,8 +80,9 @@
   <div class="well">
   <table class="table table-striped" id="table">
     <!--ColNames-->
+    <tr><?php echo "<h2>".$table."</h2>";?></tr>
     <tr>
-      <th><a href="#editor" data-toggle="collapse"><i class='glyphicon glyphicon-plus'></i></a></th>
+      <th><a data-target="#editor" data-toggle="collapse"><i class='glyphicon glyphicon-plus'></i></a></th>
       <th>Name</th>
       <th>URL</th>
       <!--PageManage-->

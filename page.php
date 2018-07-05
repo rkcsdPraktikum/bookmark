@@ -25,6 +25,13 @@ else {
   $page = 1;
 }
 $offset = $page * 10 - 10;
-$pagelimit = ceil($entrycount / 10);
+$pagelimit = ceil($entrycount / 10 + 0.7);
+
+if(!empty($_GET['bookmarks'])){
+  $table = $_GET['bookmarks'];
+}
+else {
+  $table = "bookmark";
+}
 
 ?>

@@ -74,6 +74,7 @@
   ?>' class="navbar-form navbar-right" role="search">
     <div class="form-group input-group">
       <input type="text" class="form-control" name="search" placeholder="Search...">
+      <input type="text" class="hidden" name="bookmarks" value="<?php echo $_GET['bookmarks'];?>">
       <span class="input-group-btn">SEARC
         <button class="btn btn-default" type="submit">
           <span class="glyphicon glyphicon-search"></span>
