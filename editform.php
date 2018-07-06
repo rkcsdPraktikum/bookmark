@@ -3,9 +3,9 @@ require('./connect.php');
 require('./page.php');
 if(empty($_GET['editname']) && !empty($_GET['url']) && !empty($_GET['name'])){
   if (!empty($_GET['search'])) {
-      $editabrr = "admin.php?search=".$_GET['search']."?page=".$page."&bookmarks=".$table."";}
+      $editabrr = "".$position."?search=".$_GET['search']."?page=".$page."&bookmarks=".$table."";}
       else{
-      $editabrr = "admin.php?page=".$page."&bookmarks=".$table."";}
+      $editabrr = "".$position."?page=".$page."&bookmarks=".$table."";}
 
   echo "
     <div class='container col-sm-12 alert alert-info'>

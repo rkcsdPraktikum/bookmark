@@ -14,29 +14,19 @@
       padding: 25px;
     }
   </style>
-  <?php require ("./page.php");?>
-</head>
 <body style="background-color:#222222;">
-<header>
-  <?php include("./navbar.php"); ?>
-  <div class="jumbotron">
-    <div class="container text-left">
-    <h1>bookmark</h1>
-      <p>readmarkable...</p>
-    </div>
-  </div>
-  <!--_MAINCONTAINER_________________________________________________________-->
-  <div class="container">
-  <div class="container row">
-  <!--_CONTAINER_____________________________________________________________-->
-  <div class="col-sm-4">
-    <img class="img-thumbnail" src="img/sadcat1.jpg" alt="sadcat">
-  </div>
-  <!--_CONTAINER_____________________________________________________________-->
-  <div class="col-sm-8 well">
-    <p><?php include("./txt/loremipsum.txt");?></p>
-  </div>
-</div>
-</div>
+  <?php
+  include('./login.php');
+  include('./navbar.php');
+  include('./page.php');
+
+  if(!empty($_SESSION['login_user'])){
+    include('./adminpage.php');
+  }
+  if(empty($_SESSION['login_user'])){
+    include('./loginpage.php');
+  }
+  ?>
+</head>
 </body>
 </html>
