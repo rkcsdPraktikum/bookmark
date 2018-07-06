@@ -14,7 +14,7 @@
       padding: 25px;
     }
   </style>
-  <?php require ("./page.php");?>
+  <?php require_once ("./page.php");?>
 </head>
 <body style="background-color:#222222;">
 <header>

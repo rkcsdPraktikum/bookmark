@@ -2,7 +2,7 @@
 $searchcount = 0;
 if(!empty($_GET['search'])){
   require("./connect.php");
-  $sql = 'SELECT * FROM * WHERE name LIKE "'.$_GET['search'].'"';
+  $sql = 'SELECT * FROM '.$table.' JOIN `bookmark` WHERE name LIKE "'.$_GET['search'].'"';
   $result = $db->query($sql);
   if (!$result) {
     die ('Etwas stimmte mit dem Query nicht: '.$db->error);}
