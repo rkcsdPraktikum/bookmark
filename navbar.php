@@ -2,9 +2,6 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>bookmark</title>
   <style>
     .navbar {
@@ -74,6 +71,7 @@
   ?>' class="navbar-form navbar-right" role="search">
     <div class="form-group input-group">
       <input type="text" class="form-control" name="search" placeholder="Search...">
+      <input type="text" class="hidden" name="bookmarks" value="<?php echo $_GET['bookmarks'];?>">
       <span class="input-group-btn">SEARC
         <button class="btn btn-default" type="submit">
           <span class="glyphicon glyphicon-search"></span>

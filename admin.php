@@ -20,6 +20,9 @@
     .well {
       overflow: auto;
     }
+    ul {
+      list-style-type: none;
+    }
   </style>
   <?php require ("./page.php");?>
 </head>
@@ -42,6 +45,7 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
         <input class="form-control" name="newname" type="text" placeholder="Name">
+        <input class="hidden" name="bookmarks" value="<?php echo $table;?>">
       </div>
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
@@ -55,20 +59,14 @@
   </div>
   </form>
 </div>
-<!--_SIDEBAR_________________________________________________________________-->
-<div class="well">
-  <h3 class="">SIDEBAR</h3>
-  <div class="col-xs-3">
-  <ul class="nav nav-pills nav-stacked">
-  <li><a href="#ordner1" data-toogle="collapse"><i class="glyphicon glyphicon-folder-close"></i></a></li>
-    <ul id="ordner1" class="collapse nav nav-pills nav-stacked">
-      <li><a href="#"><i class="glyphicon glyphicon-folder-close"></i></a></li>
-      <li><a href="#"><i class="glyphicon glyphicon-folder-close"></i></a></li>
-      <li><a href="#"><i class="glyphicon glyphicon-folder-close"></i></a></li>
+<!--_SIDEBAR2_________________________________________________________________-->
+<div style="margin-bottom:-1.5em; background-color:#428bca;"class="well bg-primary"><h3 class=""><h2><strong>Verzeichnis</strong></h2></div>
+<div style="margin-top:0;" class="well">
+    <ul class='list-unstyled'>
+      <?php include("./folder.php"); ?>
     </ul>
-</ul>
 </div>
-</div>
+<!--_________________________________________________________________________-->
 </div>
 <!--_TABLE___________________________________________________________________-->
 <div class="col-sm-8">
@@ -77,12 +75,13 @@
   <?php if(!empty($_GET['delid']) or !empty($_GET['delete'])){require("delete.php");}?>
   <?php if(empty($_GET['newname'])){$_GET['newname']='unbenannt';}?>
   <?php if(!empty($_GET['newurl'])){require("save.php");}?>
-  <?php if(!empty($_GET['editname']) or !empty($_GET['editurl'])){require("edit.php");}?>
+  <?php if(!empty($_GET['editname']) or !empty($_GET['editurl'])){require("save.php");}?>
   <div class="well">
   <table class="table table-striped" id="table">
     <!--ColNames-->
+    <tr><?php echo "<h2><i class='text-success glyphicon glyphicon-bookmark'> ".$table."</i></h2>";?></tr>
     <tr>
-      <th><a href="#editor" data-toggle="collapse"><i class='glyphicon glyphicon-plus'></i></a></th>
+      <th><a data-target="#editor" data-toggle="collapse"><i class='glyphicon glyphicon-plus'></i></a></th>
       <th>Name</th>
       <th>URL</th>
       <!--PageManage-->
