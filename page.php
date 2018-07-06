@@ -34,4 +34,19 @@ else {
   $table = "defaulttable";
 }
 
+switch ($_SERVER['PHP_SELF']) {
+  case '/bookmark/admin.php':
+    $position = 'admin.php';
+    break;
+  case '/bookmark/index.php':
+    $position = 'index.php';
+    break;
+}
+
+if(!empty($_SESSION['login_user'])){
+  $pos = 'admin';
+}
+else{
+  $pos = 'view';
+}
 ?>

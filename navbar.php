@@ -28,31 +28,38 @@
     </div>
   <div class="collapse navbar-collapse" id="myNavbar">
 <!--_LOCATIONCHECK___________________________________________________________-->
-<ul class="nav navbar-nav"><?php
+<ul class="nav navbar-nav"><?php include_once('./page.php');
   switch ($_SERVER['PHP_SELF']) {
+    case '/bookmark/index.php':
+      echo "<li class=''><a href='view.php'><i class='glyphicon glyphicon-folder-open'></i> MyMarks</a></li>";
+      if($pos == 'admin'){
+        echo"<li class=''><a href='addmark.php'><i class='glyphicon glyphicon-plus'></i> AddMark</a></li>";
+      }
+      if($pos == 'admin'){
+        echo"<li class=''><a href='admin.php'><i class='glyphicon glyphicon-tasks'></i> ManageMarks</a></li>";
+      }
+      break;
     case '/bookmark/view.php':
-      echo "
-      <li class='active'><a href='view.php'><i class='glyphicon glyphicon-folder-open'></i> MyMarks</a></li>
-      <li class=''><a href='addmark.php'><i class='glyphicon glyphicon-plus'></i> AddMark</a></li>
-      <li class=''><a href='admin.php'><i class='glyphicon glyphicon-tasks'></i> ManageMarks</a></li>";
+      echo "<li class='active'><a href='view.php'><i class='glyphicon glyphicon-folder-open'></i> MyMarks</a></li>";
+      if($pos == 'admin'){
+        echo"<li class=''><a href='addmark.php'><i class='glyphicon glyphicon-plus'></i> AddMark</a></li>";
+      }
+      if($pos == 'admin'){
+        echo"<li class=''><a href='admin.php'><i class='glyphicon glyphicon-tasks'></i> ManageMarks</a></li>";
+      }
       break;
     case '/bookmark/admin.php':
-      echo "
-      <li class=''><a href='view.php'><i class='glyphicon glyphicon-folder-open'></i> MyMarks</a></li>
-      <li class=''><a href='addmark.php'><i class='glyphicon glyphicon-plus'></i> AddMark</a></li>
-      <li class='active'><a href='admin.php'><i class='glyphicon glyphicon-tasks'></i> ManageMarks</a></li>";
-      break;
-    case '/bookmark/addmark.php':
-      echo "
-      <li class=''><a href='view.php'><i class='glyphicon glyphicon-folder-open'></i> MyMarks</a></li>
-      <li class='active'><a href='addmark.php'><i class='glyphicon glyphicon-plus'></i> AddMark</a></li>
-      <li class=''><a href='admin.php'><i class='glyphicon glyphicon-tasks'></i> ManageMarks</a></li>";
-      break;
+      echo "<li class='active'><a href='view.php'><i class='glyphicon glyphicon-folder-open'></i> MyMarks</a></li>";
+      if($pos == 'admin'){
+        echo"<li class='active'><a href='addmark.php'><i class='glyphicon glyphicon-plus'></i> AddMark</a></li>";
+      }
+      if($pos == 'admin'){
+        echo"<li class=''><a href='admin.php'><i class='glyphicon glyphicon-tasks'></i> ManageMarks</a></li>";
+      }
+        break;
     default:
       echo "
-      <li class=''><a href='view.php'><i class='glyphicon glyphicon-folder-open'></i> MyMarks</a></li>
-      <li class=''><a href='addmark.php'><i class='glyphicon glyphicon-plus'></i> AddMark</a></li>
-      <li class=''><a href='admin.php'><i class='glyphicon glyphicon-tasks'></i> ManageMarks</a></li>";
+      <li class=''><a href='view.php'><i class='glyphicon glyphicon-folder-open'></i> MyMarks</a></li>";
       break;}
 ?></ul>
 <!--_SEARCH__________________________________________________________________-->
@@ -72,7 +79,7 @@
     <div class="form-group input-group">
       <input type="text" class="form-control" name="search" placeholder="Search...">
       <input type="text" class="hidden" name="bookmarks" value="<?php echo $_GET['bookmarks'];?>">
-      <span class="input-group-btn">SEARC
+      <span class="input-group-btn">
         <button class="btn btn-default" type="submit">
           <span class="glyphicon glyphicon-search"></span>
         </button>
@@ -80,7 +87,10 @@
     </div>
   </form>
 <!--_USER____________________________________________________________________-->
+
           <li><a href="#"><span class="glyphicon glyphicon-user"></span> </a></li>
+
+          <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> </a></li>
         </ul>
       </div>
     </div>
